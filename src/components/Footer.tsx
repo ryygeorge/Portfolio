@@ -5,13 +5,13 @@ const Footer = () => {
     <footer className="px-6 md:px-12 lg:px-24 py-10 border-t border-border">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <p className="text-sm text-muted-foreground font-body flex items-center gap-1">
-          © {new Date().getFullYear()} — Built with <Heart size={14} className="text-accent" /> and lots of coffee
+          © {new Date().getFullYear()} — Built with efforts
         </p>
 
         <div className="flex items-center gap-4">
           {[
-            { icon: Github, href: "#", label: "GitHub" },
-            { icon: Linkedin, href: "#", label: "LinkedIn" },
+            { icon: Github, href: "https://github.com/ryygeorge", label: "GitHub" },
+            { icon: Linkedin, href: "https://linkedin.com/in/", label: "LinkedIn" },
             { icon: Mail, href: "mailto:hello@example.com", label: "Email" },
           ].map(({ icon: Icon, href, label }) => (
             <a

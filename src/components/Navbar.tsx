@@ -24,7 +24,7 @@ const Navbar = () => {
         className="font-display text-lg font-bold tracking-tight text-foreground"
       >
         <span className="text-gradient">{"<"}</span>
-        Dev
+        Ryan
         <span className="text-gradient">{" />"}</span>
       </button>
 
