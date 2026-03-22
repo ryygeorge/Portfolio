@@ -16,6 +16,7 @@ type ProjectData = {
   subtitle: string;
   description: string;
   image: string;
+  sceneImages?: string[];
   tags: string[];
   features: string[];
   previewScenes: ProjectPreviewScene[];
@@ -139,7 +140,7 @@ const ProjectPreviewHover = ({ project, index }: ProjectPreviewHoverProps) => {
                         className="absolute inset-4 overflow-hidden rounded-[1.5rem] border border-border/60"
                       >
                         <img
-                          src={project.image}
+                          src={project.sceneImages?.[hoverScene] ?? project.image}
                           alt={`${project.title} ${activeHoverPreview.title} preview`}
                           className="h-full w-full object-cover"
                           loading="lazy"
@@ -219,7 +220,7 @@ const ProjectPreviewHover = ({ project, index }: ProjectPreviewHoverProps) => {
                     className="absolute inset-0"
                   >
                     <img
-                      src={project.image}
+                      src={project.sceneImages?.[detailScene] ?? project.image}
                       alt={`${project.title} ${activeDetailPreview.title} gallery preview`}
                       className="h-full w-full object-cover"
                     />

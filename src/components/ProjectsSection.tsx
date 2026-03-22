@@ -6,61 +6,66 @@ import ProjectPreviewHover from "@/components/ProjectPreviewHover";
 const projects = [
   {
     title: "AMR-X",
-    subtitle: "Autonomous mobility concept",
+    subtitle: "Community-driven antibiotic resistance surveillance platform",
     description:
-      "A dark, control-room style dashboard concept for monitoring automated mobility routes, live demand, and fleet status. I built it to explore how complex movement data can feel clear and decision-friendly.",
+      "AMR-X is a real-world healthcare intelligence platform that collects antibiotic usage data from patients, pharmacists, and labs — then visualizes regional resistance patterns through live heatmaps and ML-based predictions. Built to democratize AMR surveillance and make it accessible beyond just clinical experts.",
     image: project1,
-    tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    tags: ["Flask", "Firebase", "Python", "Google Maps API", "Machine Learning"],
     features: [
-      "Live route visibility with focused status indicators",
-      "Operational overview panels for faster decisions",
-      "Scenario-based interface built for clarity over clutter",
+      "Live regional heatmaps showing antibiotic resistance hotspots",
+      "ML model predicting resistance likelihood from usage patterns",
+      "Community data pipeline combining patients, pharmacists, and lab antibiograms",
     ],
     previewScenes: [
       {
-        title: "Mission Control",
-        detail: "A central command view that highlights route activity, fleet readiness, and system health in one place.",
-        metric: "Overview",
+        title: "Resistance Heatmap",
+        detail: "A regional map overlaying antibiotic usage density with predicted resistance risk — instantly readable by clinicians and non-experts alike.",
+        metric: "Surveillance",
       },
       {
-        title: "Live Routing",
-        detail: "Shows how operators can follow movement, monitor bottlenecks, and react to changes with less friction.",
-        metric: "Flow",
+        title: "ML Prediction",
+        detail: "Usage frequency and regional data feed into a resistance likelihood model, flagging high-risk zones before outbreaks spread.",
+        metric: "Prediction",
       },
       {
-        title: "System Snapshot",
-        detail: "Ends with a concise summary of performance signals, completed trips, and route-level confidence.",
-        metric: "Result",
+        title: "Community Data",
+        detail: "Aggregates inputs from multiple sources into a unified dashboard showing top antibiotics used, trend lines, and risk alerts.",
+        metric: "Analytics",
       },
     ],
   },
   {
     title: "RouteWeaver",
-    subtitle: "Planning and navigation product",
+    subtitle: "Intelligent, personalized road trip & itinerary manager",
     description:
-      "A route planning product concept focused on making complex journeys feel simple. I designed it around better organization, visual guidance, and a smoother planning flow for users.",
+      "RouteWeaver simplifies road trip planning through smart automation and a clutter-free interface. Users build custom routes, explore travel packages near them, get interest-based destination suggestions, and use SmartVacay — an AI feature that reads your work calendar to recommend the best travel windows.",
     image: project2,
-    tags: ["React", "UI Design", "Tailwind CSS", "Responsive Layout"],
+     sceneImages: [
+      new URL("../assets/rw-query.jpg", import.meta.url).href,
+      new URL("../assets/rw-smartvacay.jpg", import.meta.url).href,
+      new URL("../assets/rw-suggestions.jpg", import.meta.url).href,
+    ],
+    tags: ["React", "Node.js", "MongoDB", "Google Maps API", "Gemini API", "OSRM"],
     features: [
-      "Clean journey setup with step-by-step user guidance",
-      "Visual route comparison for easier planning decisions",
-      "Responsive layout designed for mobile and desktop browsing",
+      "SmartVacay: AI reads your Google Calendar to suggest optimal travel dates",
+      "Interest-based suggestions — nature, food, history, adventure and more",
+      "Saved routes, pre-built travel packages, and real-time route optimization",
     ],
     previewScenes: [
       {
         title: "Route Builder",
-        detail: "Introduces a structured trip creation flow so users can build routes without feeling overwhelmed.",
+        detail: "Users set their start, destination, and interests — RouteWeaver builds an optimized itinerary with stops and travel time in real time.",
         metric: "Planning",
       },
       {
-        title: "Smart Compare",
-        detail: "Highlights route options side by side to help users choose based on time, comfort, or convenience.",
-        metric: "Compare",
+        title: "SmartVacay",
+        detail: "Syncs with Google Calendar to identify free windows and suggests the best travel dates so work and leisure stay balanced.",
+        metric: "AI",
       },
       {
-        title: "Trip Summary",
-        detail: "Wraps the experience with a polished overview that makes the selected route easy to confirm and trust.",
-        metric: "Summary",
+        title: "Suggestions Map",
+        detail: "An interactive map shows curated places along the chosen route with ratings, photos, and one-click navigation.",
+        metric: "Discovery",
       },
     ],
   },
@@ -84,7 +89,7 @@ const ProjectsSection = () => {
         >
           <p className="mb-3 font-body text-sm uppercase tracking-[0.35em] text-accent">Selected Work</p>
           <h2 className="mx-auto mb-4 max-w-4xl font-display text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
-            A minimal showcase built around motion, clarity, and how each project actually works.
+            Real projects. Real problems solved — from healthcare intelligence to smart travel planning.
           </h2>
           <p className="mx-auto max-w-2xl font-body text-base text-muted-foreground md:text-lg">
             Hover to reveal a floating visual walkthrough, then click any project to open the full case-study style view.
