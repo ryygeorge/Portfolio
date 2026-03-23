@@ -44,7 +44,7 @@ const ProjectPreviewHover = ({ project, index }: ProjectPreviewHoverProps) => {
   );
 
   useEffect(() => {
-    if (!isHovered) return;
+    if (isHovered) return;
 
     const interval = window.setInterval(() => {
       setHoverScene((current) => (current + 1) % project.previewScenes.length);
@@ -114,7 +114,7 @@ const ProjectPreviewHover = ({ project, index }: ProjectPreviewHoverProps) => {
               <motion.div
                 animate={{ x: pointer.offsetX, y: pointer.offsetY }}
                 transition={{ type: "spring", stiffness: 180, damping: 18, mass: 0.7 }}
-                className="relative w-[22rem]"
+                className="relative w-[16rem]"
               >
                 <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_top,hsl(var(--accent)/0.18),transparent_45%)] blur-3xl" />
 
@@ -129,7 +129,7 @@ const ProjectPreviewHover = ({ project, index }: ProjectPreviewHoverProps) => {
                     </div>
                   </div>
 
-                  <div className="relative aspect-[4/3] overflow-hidden bg-muted/20 p-4">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-muted/20 p-3">
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={`${project.title}-${activeHoverPreview.title}`}
@@ -154,9 +154,9 @@ const ProjectPreviewHover = ({ project, index }: ProjectPreviewHoverProps) => {
                             {activeHoverPreview.metric}
                           </span>
                         </div>
-                        <div className="absolute bottom-4 left-4 right-4 rounded-[1.25rem] border border-border/60 bg-background/78 p-4 backdrop-blur-md">
-                          <p className="font-display text-xl font-semibold text-foreground">{activeHoverPreview.title}</p>
-                          <p className="mt-2 font-body text-sm leading-relaxed text-muted-foreground">
+                        <div className="absolute bottom-3 left-3 right-3 rounded-[1rem] border border-border/60 bg-background/78 p-3 backdrop-blur-md">
+                          <p className="font-display text-sm font-semibold text-foreground">{activeHoverPreview.title}</p>
+                          <p className="mt-1 font-body text-[11px] leading-relaxed text-muted-foreground line-clamp-2">
                             {activeHoverPreview.detail}
                           </p>
                         </div>
