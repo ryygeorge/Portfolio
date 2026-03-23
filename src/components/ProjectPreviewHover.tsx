@@ -222,7 +222,7 @@ const ProjectPreviewHover = ({ project, index }: ProjectPreviewHoverProps) => {
                     <img
                       src={project.sceneImages?.[detailScene] ?? project.image}
                       alt={`${project.title} ${activeDetailPreview.title} gallery preview`}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-contain bg-background/60"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/12 to-transparent" />
 
