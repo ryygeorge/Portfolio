@@ -44,17 +44,17 @@ const ProjectPreviewHover = ({ project, index }: ProjectPreviewHoverProps) => {
   );
 
   useEffect(() => {
-    if (isHovered) return;
+    if (!isHovered || isOpen) return;
 
     const interval = window.setInterval(() => {
       setHoverScene((current) => (current + 1) % project.previewScenes.length);
     }, 1600);
 
     return () => window.clearInterval(interval);
-  }, [isHovered, project.previewScenes.length]);
+  }, [isHovered, isOpen, project.previewScenes.length]);
 
   useEffect(() => {
-    if (!isOpen) return;
+    if (isOpen) return;
     setDetailScene(hoverScene);
   }, [hoverScene, isOpen]);
 
@@ -212,7 +212,7 @@ const ProjectPreviewHover = ({ project, index }: ProjectPreviewHoverProps) => {
               <div className="relative min-h-[18rem] flex-1 overflow-hidden rounded-[1.75rem] border border-border/60 bg-muted/30 shadow-xl">
                 <AnimatePresence mode="wait">
                   <motion.div
-                    key={`${project.title}-${activeDetailPreview.title}-detail`}
+                    key={`${project.title}-detail-${detailScene}`}
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.02 }}
@@ -225,6 +225,21 @@ const ProjectPreviewHover = ({ project, index }: ProjectPreviewHoverProps) => {
                       className="h-full w-full object-contain bg-background/60"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/12 to-transparent" />
+
+                    <button
+                      type="button"
+                      onClick={() => setDetailScene((s) => (s - 1 + project.previewScenes.length) % project.previewScenes.length)}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-border/60 bg-background/80 p-2 text-foreground backdrop-blur-md transition hover:bg-accent/20 hover:text-accent"
+                    >
+                      ‹
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setDetailScene((s) => (s + 1) % project.previewScenes.length)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-border/60 bg-background/80 p-2 text-foreground backdrop-blur-md transition hover:bg-accent/20 hover:text-accent"
+                    >
+                      ›
+                    </button>
 
                     <div className="absolute left-5 right-5 top-5 flex items-center justify-between text-[10px] font-body uppercase tracking-[0.3em] text-foreground/85">
                       <span className="rounded-full border border-border/60 bg-background/72 px-3 py-1">
